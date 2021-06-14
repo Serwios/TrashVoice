@@ -17,11 +17,13 @@ async def process_start_command(message: types.Message):
 
 @dp.message_handler(content_types=types.ContentType.VOICE)
 async def process_help_command(message: types.Message):
+    r = random.choice(VOICE_REPLIES)
     print("Bot request:")
     print("    User:", message.from_user.first_name)
     print("    Chat:", message.chat.first_name)
+    print("    Reply:", r)
 
-    await message.reply(random.choice(VOICE_REPLIES))
+    await message.reply(r)
 
 
 if __name__ == '__main__':
